@@ -8,3 +8,22 @@ eureka:
     register-with-eureka: true
     service-url:
       default-zone: http://discover-service:8761/eureka
+resilience4j:
+  retry:
+    instances:
+      userRetry:
+        max-attempts: 3
+        wait-duration: 5s
+  circuitbreaker:
+
+
+    instances:
+      userCB:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowType: TIME_BASED
+        minimumNumberOfCalls: 4
+        waitDurationInOpenState: 5s
+        failureRateThreshold: 50
+        eventConsumerBufferSize: 10
