@@ -30,8 +30,11 @@ spring:
         - id: auth-service
           uri: lb://auth-service
           predicates:
-              - Path=/api/v1/authservice/**         
+              - Path=/api/v1/authservice/**
+         
         - id: usuario-service
           uri: lb://usuario-service
           predicates:
               - Path=/api/v1/**
+          filters:
+              - AuthFilter
