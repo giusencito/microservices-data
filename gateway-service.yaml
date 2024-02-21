@@ -27,6 +27,10 @@ spring:
           uri: lb://calification-service
           predicates:
               - Path=/api/v1/calificationservice/**
+        - id: calification-service
+          uri: lb://calification-service
+          predicates:
+              - Path=/api/v1/authservice/**
         - id: usuario-service
           uri: lb://usuario-service
           predicates:
