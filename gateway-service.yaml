@@ -27,8 +27,8 @@ spring:
           uri: lb://calification-service
           predicates:
               - Path=/api/v1/calificationservice/**
-        - id: calification-service
-          uri: lb://calification-service
+        - id: auth-service
+          uri: lb://auth-service
           predicates:
               - Path=/api/v1/authservice/**
           filters:
