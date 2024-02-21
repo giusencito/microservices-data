@@ -31,6 +31,8 @@ spring:
           uri: lb://calification-service
           predicates:
               - Path=/api/v1/authservice/**
+          filters:
+            - AuthFilter
         - id: usuario-service
           uri: lb://usuario-service
           predicates:
